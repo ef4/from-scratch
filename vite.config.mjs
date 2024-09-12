@@ -5,7 +5,7 @@ import { optimizeDeps } from '@embroider/vite';
 export default defineConfig(() => {
   return {
     plugins: [
-      babel()
+      babel({ babelHelpers: 'bundled' })
     ],
     optimizeDeps: optimizeDeps(),
   };

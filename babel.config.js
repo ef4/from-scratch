@@ -4,4 +4,7 @@ module.exports = {
   plugins: [
     ...babelCompatSupport()
   ],
+  generatorOpts: {
+    compact: false,
+  },
 }
