@@ -2,5 +2,8 @@
   "name": "from-scratch",
   "version": "1.0.0",
   "author": "edward@eaf4.com",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "ember-source": "6.0.0-alpha.9"
+  }
 }
