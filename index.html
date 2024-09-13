@@ -4,8 +4,13 @@
     <script type="module">
       import Application from '@ember/application';
       import Resolver from 'ember-resolver';
+      import IndexRoute from './app/routes/index.js';
+
       class App extends Application {
-        Resolver = Resolver
+        modulePrefix = "from-scratch";
+        Resolver = Resolver.withModules({
+          "from-scratch/routes/index": IndexRoute
+        });
       }
       App.create()
     </script>
