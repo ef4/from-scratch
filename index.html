@@ -3,7 +3,10 @@
   <body>
     <script type="module">
       import Application from '@ember/application';
-      class App extends Application {}
+      import Resolver from 'ember-resolver';
+      class App extends Application {
+        Resolver = Resolver
+      }
       App.create()
     </script>
   </body>

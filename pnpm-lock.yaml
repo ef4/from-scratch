@@ -20,6 +20,9 @@ devDependencies:
   '@rollup/plugin-babel':
     specifier: ^6.0.4
     version: 6.0.4(@babel/core@7.25.2)
+  ember-resolver:
+    specifier: ^13.0.0
+    version: 13.0.0(ember-source@6.0.0-alpha.9)
   ember-source:
     specifier: 6.0.0-alpha.9
     version: 6.0.0-alpha.9(@glimmer/component@1.1.2)(rsvp@4.8.5)(webpack@5.94.0)
@@ -4289,6 +4292,21 @@ packages:
       semver: 5.7.2
     transitivePeerDependencies:
       - '@babel/core'
+      - supports-color
+    dev: true
+
+  /ember-resolver@13.0.0(ember-source@6.0.0-alpha.9):
+    resolution: {integrity: sha512-CHt3RdHsjHnVA6wJY9Rw3n73RNfG7JBoqPAhlt4AD+leQPdY8QDKroWd9u5IM+YhCje46jhxEJAtQ733pFiS5Q==}
+    engines: {node: 14.* || 16.* || >= 18}
+    peerDependencies:
+      ember-source: ^4.12.0 || >= 5.0.0
+    peerDependenciesMeta:
+      ember-source:
+        optional: true
+    dependencies:
+      ember-cli-babel: 7.26.11
+      ember-source: 6.0.0-alpha.9(@glimmer/component@1.1.2)(rsvp@4.8.5)(webpack@5.94.0)
+    transitivePeerDependencies:
       - supports-color
     dev: true
 
