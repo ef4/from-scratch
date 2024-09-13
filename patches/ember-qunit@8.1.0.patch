@@ -1,0 +1,29 @@
+diff --git a/dist/index.js b/dist/index.js
+index d37ad506e3fb5adbc707587aa173c0bc59b9bbc9..58b3a6dc9c88b395d072118fa22a3957e7a688fb 100644
+--- a/dist/index.js
++++ b/dist/index.js
+@@ -1,7 +1,7 @@
+ import { macroCondition, getOwnConfig, importSync } from '@embroider/macros';
+ import Adapter from './adapter.js';
+ export { nonTestDoneCallback } from './adapter.js';
+-import { loadTests } from './test-loader.js';
++// import { loadTests } from './test-loader.js';
+ import './qunit-configuration.js';
+ import { _backburner } from '@ember/runloop';
+ import { getTestMetadata, setupContext, teardownContext, setupRenderingContext, setupApplicationContext, validateErrorHandler, resetOnerror } from '@ember/test-helpers';
+@@ -177,7 +177,7 @@ function setupTestIsolationValidation(delay) {
+  */
+ function start(options = {}) {
+   if (options.loadTests !== false) {
+-    loadTests();
++    // loadTests();
+   }
+   if (options.setupTestContainer !== false) {
+     setupTestContainer();
+@@ -200,5 +200,5 @@ function start(options = {}) {
+   setupResetOnerror();
+ }
+ 
+-export { Adapter as QUnitAdapter, loadTests, setupApplicationTest, setupEmberOnerrorValidation, setupEmberTesting, setupRenderingTest, setupResetOnerror, setupTest, setupTestAdapter, setupTestContainer, setupTestIsolationValidation, start, startTests };
++export { Adapter as QUnitAdapter, /*loadTests,*/ setupApplicationTest, setupEmberOnerrorValidation, setupEmberTesting, setupRenderingTest, setupResetOnerror, setupTest, setupTestAdapter, setupTestContainer, setupTestIsolationValidation, start, startTests };
+ //# sourceMappingURL=index.js.map

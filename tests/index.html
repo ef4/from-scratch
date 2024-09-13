@@ -1,0 +1,20 @@
+<html>
+<body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture">
+      <div id="ember-testing-container">
+        <div id="ember-testing"></div>
+      </div>
+    </div>
+
+    <script type="module">import "ember-testing";</script>
+
+    <script type="module">
+      import { start } from './test-helper';
+      import.meta.glob("./**/*.{js,gjs}", { eager: true });
+      import env from 'from-scratch/config/environment';
+      env.locationType = 'none';
+      start();
+    </script>
+  </body>
+</html>

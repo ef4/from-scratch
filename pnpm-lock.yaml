@@ -4,10 +4,18 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+patchedDependencies:
+  ember-qunit@8.1.0:
+    hash: ff6efuttmktgepfznl7i5tn5ky
+    path: patches/ember-qunit@8.1.0.patch
+
 devDependencies:
   '@babel/core':
     specifier: ^7.25.2
     version: 7.25.2
+  '@ember/test-helpers':
+    specifier: ^4.0.4
+    version: 4.0.4(@babel/core@7.25.2)(ember-source@6.0.0-alpha.9)
   '@embroider/compat':
     specifier: 3.6.2-unstable.f7656a3
     version: 3.6.2-unstable.f7656a3(@embroider/core@3.4.16-unstable.f7656a3)
@@ -23,6 +31,9 @@ devDependencies:
   babel-plugin-ember-template-compilation:
     specifier: ^2.3.0
     version: 2.3.0
+  ember-qunit:
+    specifier: ^8.1.0
+    version: 8.1.0(patch_hash=ff6efuttmktgepfznl7i5tn5ky)(@ember/test-helpers@4.0.4)(ember-source@6.0.0-alpha.9)(qunit@2.22.0)
   ember-resolver:
     specifier: ^13.0.0
     version: 13.0.0(ember-source@6.0.0-alpha.9)
@@ -32,6 +43,12 @@ devDependencies:
   ember-source:
     specifier: 6.0.0-alpha.9
     version: 6.0.0-alpha.9(@glimmer/component@1.1.2)(rsvp@4.8.5)(webpack@5.94.0)
+  qunit:
+    specifier: ^2.22.0
+    version: 2.22.0
+  qunit-dom:
+    specifier: ^3.2.0
+    version: 3.2.0
   vite:
     specifier: ^5.4.4
     version: 5.4.4
@@ -1426,6 +1443,36 @@ packages:
 
   /@ember/edition-utils@1.2.0:
     resolution: {integrity: sha512-VmVq/8saCaPdesQmftPqbFtxJWrzxNGSQ+e8x8LLe3Hjm36pJ04Q8LeORGZkAeOhldoUX9seLGmSaHeXkIqoog==}
+    dev: true
+
+  /@ember/test-helpers@4.0.4(@babel/core@7.25.2)(ember-source@6.0.0-alpha.9):
+    resolution: {integrity: sha512-1mbOVyVEcLxYOGzBaeeaQkCrL1o9Av86QaHk/1RvrVBW24I6YUj1ILLEi2qLZT5PzcCy0TdfadHT3hKJwJ0GcQ==}
+    peerDependencies:
+      ember-source: '>= 4.0.0'
+    dependencies:
+      '@ember/test-waiters': 3.1.0
+      '@embroider/addon-shim': 1.8.9
+      '@embroider/macros': 1.16.6
+      '@simple-dom/interface': 1.4.0
+      decorator-transforms: 2.0.0(@babel/core@7.25.2)
+      dom-element-descriptors: 0.5.1
+      ember-source: 6.0.0-alpha.9(@glimmer/component@1.1.2)(rsvp@4.8.5)(webpack@5.94.0)
+    transitivePeerDependencies:
+      - '@babel/core'
+      - '@glint/template'
+      - supports-color
+    dev: true
+
+  /@ember/test-waiters@3.1.0:
+    resolution: {integrity: sha512-bb9h95ktG2wKY9+ja1sdsFBdOms2lB19VWs8wmNpzgHv1NCetonBoV5jHBV4DHt0uS1tg9z66cZqhUVlYs96KQ==}
+    engines: {node: 10.* || 12.* || >= 14.*}
+    dependencies:
+      calculate-cache-key-for-tree: 2.0.0
+      ember-cli-babel: 7.26.11
+      ember-cli-version-checker: 5.1.2
+      semver: 7.6.3
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /@embroider/addon-shim@1.8.9:
@@ -3799,6 +3846,11 @@ packages:
     engines: {node: '>= 6'}
     dev: true
 
+  /commander@7.2.0:
+    resolution: {integrity: sha512-QrWXB+ZQSVPmIWIhtEO9H+gwHaMGYiF5ChvoJ+K9ZGHG/sVsa6yiesAD1GC/x46sET00Xlwo1u49RVVVzvcSkw==}
+    engines: {node: '>= 10'}
+    dev: true
+
   /common-ancestor-path@1.0.1:
     resolution: {integrity: sha512-L3sHRo1pXXEqX8VU28kfgUY+YGsk09hPqZiZmLacNib6XNTCM8ubYeT7ryXQw8asB1sKgcU5lkB7ONug08aB8w==}
     dev: true
@@ -3995,6 +4047,15 @@ packages:
     engines: {node: '>=0.10'}
     dev: true
 
+  /decorator-transforms@2.0.0(@babel/core@7.25.2):
+    resolution: {integrity: sha512-ETfQccGcotK01YJsoB0AGTdUp7kS9jI93mBzrRY5Oyo+bOJfa2UKTSjCNf+iRNwAWBmBKlbiCcyL4tkY4C4dZQ==}
+    dependencies:
+      '@babel/plugin-syntax-decorators': 7.24.7(@babel/core@7.25.2)
+      babel-import-util: 3.0.0
+    transitivePeerDependencies:
+      - '@babel/core'
+    dev: true
+
   /defaults@1.0.4:
     resolution: {integrity: sha512-eFuaLoy/Rxalv2kr+lqMlUnrDWV+3j4pljOIJgLIhI058IQfWJ7vXhyEIHu+HtC738klGALYxOKDO0bQP3tg8A==}
     dependencies:
@@ -4064,6 +4125,10 @@ packages:
   /detect-file@1.0.0:
     resolution: {integrity: sha512-DtCOLG98P007x7wiiOmfI0fi3eIKyWiLTGJ2MDnVi/E04lWGbf+JzrRHMm0rgIIZJGtHpKpbVgLWHrv8xXpc3Q==}
     engines: {node: '>=0.10.0'}
+    dev: true
+
+  /dom-element-descriptors@0.5.1:
+    resolution: {integrity: sha512-DLayMRQ+yJaziF4JJX1FMjwjdr7wdTr1y9XvZ+NfHELfOMcYDnCHneAYXAS4FT1gLILh4V0juMZohhH1N5FsoQ==}
     dev: true
 
   /domexception@2.0.1:
@@ -4244,6 +4309,15 @@ packages:
     resolution: {integrity: sha512-PlJt4fUDyBrC/0X+4cOpaGCiMawaaB//qD85AXmDRikxhxVzfVdpuoec02HSiTGTTB85qCIzWBIh8lDOiMyyFg==}
     dev: true
 
+  /ember-cli-test-loader@3.1.0:
+    resolution: {integrity: sha512-0aocZV9SIoOHiU3hrH3IuLR6busWhTX6UVXgd490hmJkIymmOXNH2+jJoC7Ebkeo3PiOfAdjqhb765QDlHSJOw==}
+    engines: {node: 10.* || >= 12}
+    dependencies:
+      ember-cli-babel: 7.26.11
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
   /ember-cli-typescript-blueprint-polyfill@0.1.0:
     resolution: {integrity: sha512-g0weUTOnHmPGqVZzkQTl3Nbk9fzEdFkEXydCs5mT1qBjXh8eQ6VlmjjGD5/998UXKuA0pLSCVVMbSp/linLzGA==}
     dependencies:
@@ -4316,6 +4390,26 @@ packages:
       - '@babel/core'
       - supports-color
     dev: true
+
+  /ember-qunit@8.1.0(patch_hash=ff6efuttmktgepfznl7i5tn5ky)(@ember/test-helpers@4.0.4)(ember-source@6.0.0-alpha.9)(qunit@2.22.0):
+    resolution: {integrity: sha512-55/xqvVQwhiNcnh/tCzWyvlYzrYqwDY0/cIPyDQbAxGKtkUt9jCfRUGllfyOofC6LX0fL/0fIi+5e9sg1m6vXw==}
+    peerDependencies:
+      '@ember/test-helpers': '>=3.0.3'
+      ember-source: '>=4.0.0'
+      qunit: ^2.13.0
+    dependencies:
+      '@ember/test-helpers': 4.0.4(@babel/core@7.25.2)(ember-source@6.0.0-alpha.9)
+      '@embroider/addon-shim': 1.8.9
+      '@embroider/macros': 1.16.6
+      ember-cli-test-loader: 3.1.0
+      ember-source: 6.0.0-alpha.9(@glimmer/component@1.1.2)(rsvp@4.8.5)(webpack@5.94.0)
+      qunit: 2.22.0
+      qunit-theme-ember: 1.0.0
+    transitivePeerDependencies:
+      - '@glint/template'
+      - supports-color
+    dev: true
+    patched: true
 
   /ember-resolver@13.0.0(ember-source@6.0.0-alpha.9):
     resolution: {integrity: sha512-CHt3RdHsjHnVA6wJY9Rw3n73RNfG7JBoqPAhlt4AD+leQPdY8QDKroWd9u5IM+YhCje46jhxEJAtQ733pFiS5Q==}
@@ -5250,6 +5344,14 @@ packages:
     dependencies:
       define-properties: 1.2.1
       gopd: 1.0.1
+    dev: true
+
+  /globalyzer@0.1.0:
+    resolution: {integrity: sha512-40oNTM9UfG6aBmuKxk/giHn5nQ8RVz/SS4Ir6zgzOv9/qC3kKZ9v4etGTcJbEl/NyVQH7FGU7d+X1egr57Md2Q==}
+    dev: true
+
+  /globrex@0.1.2:
+    resolution: {integrity: sha512-uHJgbwAMwNFf5mLst7IWLNg14x1CkeqglJb/K3doi4dw6q2IvAAmM/Y81kevy83wP+Sst+nutFTYOGg3d1lsxg==}
     dev: true
 
   /gopd@1.0.1:
@@ -6229,6 +6331,11 @@ packages:
     resolution: {integrity: sha512-d9VeXT4SJ7ZeOqGX6R5EM022wpL+eWPooLI+5UpWn2jCT1aosUQEhQP214x33Wkwx3JQMvIm+tIoVOdodFS40g==}
     dev: true
 
+  /node-watch@0.7.3:
+    resolution: {integrity: sha512-3l4E8uMPY1HdMMryPRUAl+oIHtXtyiTlIiESNSVSNxcPfzAFzeTbXFQkZfAwBbo0B1qMSG8nUABx+Gd+YrbKrQ==}
+    engines: {node: '>=6'}
+    dev: true
+
   /normalize-path@2.1.1:
     resolution: {integrity: sha512-3pKJwH184Xo/lnH6oyP1q2pMd7HcypqqmRs91/6/i2CGtWwIKGCkOOMTm/zXbgTEWHw1uNpNi/igc3ePOYHb6w==}
     engines: {node: '>=0.10.0'}
@@ -6657,6 +6764,26 @@ packages:
       mktemp: 0.4.0
       rimraf: 2.7.1
       underscore.string: 3.3.6
+    dev: true
+
+  /qunit-dom@3.2.0:
+    resolution: {integrity: sha512-VYFXbwod2sis16Nzgx5UrdCvjNUPYIAbTwEGv7hF1RfgJaVgG5ASVaQz9en0ZRvlybtql0LrVuAbleJU/57zQQ==}
+    dependencies:
+      dom-element-descriptors: 0.5.1
+    dev: true
+
+  /qunit-theme-ember@1.0.0:
+    resolution: {integrity: sha512-vdMVVo6ecdCkWttMTKeyq1ZTLGHcA6zdze2zhguNuc3ritlJMhOXY5RDseqazOwqZVfCg3rtlmL3fMUyIzUyFQ==}
+    dev: true
+
+  /qunit@2.22.0:
+    resolution: {integrity: sha512-wPYvAvpjTL3zlUeyCX75T8gfZfdVXZa8y1EVkGe/XZNORIsCH/WI2X8R2KlemT921X9EKSZUL6CLGSPC7Ks08g==}
+    engines: {node: '>=10'}
+    hasBin: true
+    dependencies:
+      commander: 7.2.0
+      node-watch: 0.7.3
+      tiny-glob: 0.2.9
     dev: true
 
   /randombytes@2.1.0:
@@ -7552,6 +7679,13 @@ packages:
 
   /through@2.3.8:
     resolution: {integrity: sha512-w89qg7PI8wAdvX60bMDP+bFoD5Dvhm9oLheFp5O4a2QF0cSBGsBX4qZmadPMvVqlLJBBci+WqGGOAPvcDeNSVg==}
+    dev: true
+
+  /tiny-glob@0.2.9:
+    resolution: {integrity: sha512-g/55ssRPUjShh+xkfx9UPDXqhckHEsHr4Vd9zX55oSdGZc/MD0m3sferOkwWtp98bv+kcVfEHtRJgBVJzelrzg==}
+    dependencies:
+      globalyzer: 0.1.0
+      globrex: 0.1.2
     dev: true
 
   /tmp@0.0.28:
