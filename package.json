@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "author": "edward@eaf4.com",
   "license": "MIT",
+  "scripts": {
+    "start": "EMBROIDER_FORCED_V2_PACKAGES=ember-source,from-scratch pnpm vite dev"
+  },
   "devDependencies": {
     "@babel/core": "^7.25.2",
     "@embroider/compat": "3.6.2-unstable.f7656a3",
