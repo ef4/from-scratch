@@ -4,6 +4,9 @@ import { optimizeDeps, resolver, templateTag } from '@embroider/vite';
 
 export default defineConfig(() => {
   return {
+    resolve: {
+      extensions: ['.js', '.gjs'],
+    },
     plugins: [
       babel({ 
         babelHelpers: 'bundled',
