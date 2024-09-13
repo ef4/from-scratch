@@ -20,9 +20,15 @@ devDependencies:
   '@rollup/plugin-babel':
     specifier: ^6.0.4
     version: 6.0.4(@babel/core@7.25.2)
+  babel-plugin-ember-template-compilation:
+    specifier: ^2.3.0
+    version: 2.3.0
   ember-resolver:
     specifier: ^13.0.0
     version: 13.0.0(ember-source@6.0.0-alpha.9)
+  ember-route-template:
+    specifier: ^1.0.3
+    version: 1.0.3
   ember-source:
     specifier: 6.0.0-alpha.9
     version: 6.0.0-alpha.9(@glimmer/component@1.1.2)(rsvp@4.8.5)(webpack@5.94.0)
@@ -1420,6 +1426,18 @@ packages:
 
   /@ember/edition-utils@1.2.0:
     resolution: {integrity: sha512-VmVq/8saCaPdesQmftPqbFtxJWrzxNGSQ+e8x8LLe3Hjm36pJ04Q8LeORGZkAeOhldoUX9seLGmSaHeXkIqoog==}
+    dev: true
+
+  /@embroider/addon-shim@1.8.9:
+    resolution: {integrity: sha512-qyN64T1jMHZ99ihlk7VFHCWHYZHLE1DOdHi0J7lmn5waV1DoW7gD8JLi1i7FregzXtKhbDc7shyEmTmWPTs8MQ==}
+    engines: {node: 12.* || 14.* || >= 16}
+    dependencies:
+      '@embroider/shared-internals': 2.6.3
+      broccoli-funnel: 3.0.8
+      common-ancestor-path: 1.0.1
+      semver: 7.6.3
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /@embroider/compat@3.6.2-unstable.f7656a3(@embroider/core@3.4.16-unstable.f7656a3):
@@ -3781,6 +3799,10 @@ packages:
     engines: {node: '>= 6'}
     dev: true
 
+  /common-ancestor-path@1.0.1:
+    resolution: {integrity: sha512-L3sHRo1pXXEqX8VU28kfgUY+YGsk09hPqZiZmLacNib6XNTCM8ubYeT7ryXQw8asB1sKgcU5lkB7ONug08aB8w==}
+    dev: true
+
   /commondir@1.0.1:
     resolution: {integrity: sha512-W9pAhw0ja1Edb5GVdIF1mjZw/ASI0AlShXM83UUGe2DVr5TdAPEA1OA8m/g8zWp9x6On7gqufY+FatDbC3MDQg==}
     dev: true
@@ -4312,6 +4334,14 @@ packages:
 
   /ember-rfc176-data@0.3.18:
     resolution: {integrity: sha512-JtuLoYGSjay1W3MQAxt3eINWXNYYQliK90tLwtb8aeCuQK8zKGCRbBodVIrkcTqshULMnRuTOS6t1P7oQk3g6Q==}
+    dev: true
+
+  /ember-route-template@1.0.3:
+    resolution: {integrity: sha512-p//Nk4g4Wu9F8cZdjB69rKxTRi6RRW32a8K5sYsi5cofTcJtPBXRWUXWpQEjJX6qcucgxooQwEm9+7MOy4lwNw==}
+    dependencies:
+      '@embroider/addon-shim': 1.8.9
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /ember-router-generator@2.0.0:
