@@ -1,6 +1,9 @@
 {
   "name": "from-scratch",
   "version": "1.0.0",
+  "exports": {
+    "./*": "./app/*"
+  },
   "author": "edward@eaf4.com",
   "license": "MIT",
   "scripts": {
